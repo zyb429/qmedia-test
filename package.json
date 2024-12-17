@@ -3,16 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "-": "^0.0.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "ajv": "^8.17.1",
     "ajv-keywords": "^5.1.0",
+    "g": "^2.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-select": "^5.9.0",
-    "sweetalert2": "^11.15.2",
+    "sweetalert2": "^11.6.13",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -42,5 +44,8 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
+  }
 }

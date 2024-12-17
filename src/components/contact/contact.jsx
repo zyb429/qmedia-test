@@ -4,6 +4,7 @@ import Dropdown from "./dropdown";
 import Swal from "sweetalert2";
 
 const Contact = () => {
+  //eslint-disable-next-line
   const [result, setResult] = React.useState("");
 
   const onSubmit = async (event) => {
