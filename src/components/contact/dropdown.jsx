@@ -12,7 +12,7 @@ const Dropdown = () => {
   return (
     <Select
       options={seminar}
-      placeholder="Выберите семинар"
+      placeholder="Выберите семинар:"
       required
       name="seminar"
     />
