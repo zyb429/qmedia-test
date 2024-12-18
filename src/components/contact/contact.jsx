@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import "./contact.css";
 import Dropdown from "./dropdown";
 import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 const Contact = () => {
   const form = useRef();
@@ -21,6 +22,11 @@ const Contact = () => {
           console.log(error.text);
         }
       );
+    Swal.fire({
+      title: "Good job!",
+      text: "Ваша заявка успешно отправлена и находится в обработке. Ожидайте email с подтверждением бронирования.",
+      icon: "success",
+    });
   };
 
   return (

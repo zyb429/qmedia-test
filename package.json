@@ -19,12 +19,12 @@
     "react-scripts": "^5.0.1",
     "react-select": "^5.9.0",
     "resend": "^4.0.1",
-    "sweetalert2": "^11.6.13",
+    "sweetalert2": "^11.15.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "npm run build && gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -53,6 +53,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "gh-pages": "^6.2.0"
+    "gh-pages": "6.2.0"
   }
 }
