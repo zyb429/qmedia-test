@@ -1,42 +1,31 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./contact.css";
 import Dropdown from "./dropdown";
-import Swal from "sweetalert2";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
-  //eslint-disable-next-line
-  const [result, setResult] = React.useState("");
+  const form = useRef();
 
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    setResult("Sending....");
-    const formData = new FormData(event.target);
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-    formData.append("access_key", "150fcf14-f104-46aa-967c-a50bf9a0b302");
-
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      Swal.fire({
-        title: "Success!",
-        text: "Ваша заявка успешно отправлена и находится в обработке. Ожидайте email с подтверждением бронирования.",
-        icon: "success",
-      });
-      event.target.reset();
-    } else {
-      console.log("Error", data);
-      setResult(data.message);
-    }
+    emailjs
+      .sendForm("service_0foiciq", "template_jiyzq1x", form.current, {
+        publicKey: "MeKD6BRrywSVZBC1I",
+      })
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   return (
     <section className={"contact"}>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={sendEmail} ref={form}>
         <h2>Отправить заявку на участие в семинаре</h2>
         <p>Организаторы свяжутся с вами для подтверждения записи.</p>
         <p>
@@ -66,7 +55,7 @@ const Contact = () => {
         <br />
         <div classname={"chooser"}>
           <h1>Интересующий семинар:</h1>
-          <Dropdown name="seminar" />
+          <Dropdown />
         </div>
         <div className="terms">
           <div className="terms-flex">
@@ -76,7 +65,7 @@ const Contact = () => {
               политикой обработки данных.
             </p>
           </div>
-          <button type={"submit"}>Отправить</button>
+          <input type="submit" value="Send" />
         </div>
       </form>
     </section>
